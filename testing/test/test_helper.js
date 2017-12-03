@@ -21,7 +21,7 @@ function renderComponent(ComponentClass, props, state) {
     </Provider>
   );
 
-  return $(ReactDom.findDOMNode(componentInstance)); //produces HTML
+  return $(ReactDOM.findDOMNode(componentInstance)); // produces HTML
 }
 
 // Build helper for simulating events
