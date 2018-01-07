@@ -7,12 +7,12 @@ class UserList extends Component {
     this.props.fetchUsers();
   }
 
-  renderUser(user) {
+  renderUser(user, index) {
     return (
-      <div className="card card-block">
+      <div className="card card-block" key={index}>
         <h4 className="card-title">{user.name}</h4>
-        <p className="card-text">Cheese Store</p>
-        <a className="btn btn-primary">Email</a>
+        <p className="card-text">{user.company.name}</p>
+        <a className="btn btn-primary" href={user.website}>Website</a>
       </div>
     );
   }
