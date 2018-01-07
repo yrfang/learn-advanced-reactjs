@@ -6,9 +6,16 @@ export default function({ dispatch }) {
     // or, the payload does not have a .then property
     // we dont care about it, send it on
     if (!action.payload || !action.payload.then) {
-      return next(action);
+      return next(action); //go to next middleware until action payload has been resolved
     }
 
-    console.log('we dont have a promise', action);
+    // Make sure the action's promise resolves
+    action.payload
+      .then(function(response) {
+        // create a new action with the old type, but
+        // replace the promise with the reponse data
+        const newAction = { ...action, payload: response };
+        dispatch(newAction);
+      });
   }
 }
