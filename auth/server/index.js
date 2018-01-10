@@ -6,10 +6,14 @@ const morgan = require('morgan');
 const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // DB Setup
-mongoose.connect('mongodb://localhost:auth/auth');
-
+const options = {
+  useMongoClient: true,
+}
+mongoose.connect('mongodb://localhost/auth', options);
+// console.log('connect done');
 
 // App Setup
 app.use(morgan('combined'));
