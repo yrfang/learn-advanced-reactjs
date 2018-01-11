@@ -9,8 +9,9 @@ const userSchema = new Schema({
 });
 
 // On Save Hook, encrypt password
+// Before saving a model, run this function
 userSchema.pre('save', function(next) {
-  // get access to the user model
+  // get access to the user model (user instance of user model)
   const user = this;
 
   // generate a salt then run callback
