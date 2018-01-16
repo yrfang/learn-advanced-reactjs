@@ -25,6 +25,14 @@ export function signinUser({ email, password }) {
       .catch((error) => {
         // If request is bad...
         // - Show an error to the user
+        dispatch(authError('Bad Login Info'));
       });
   }
+}
+
+export function authError(error) {
+  return {
+    type: AUTH_ERROR,
+    payload: error
+  };
 }
