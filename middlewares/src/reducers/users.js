@@ -7,6 +7,7 @@ export default function(state = [], action) {
     case FETCH_USERS:
       console.log(action.payload);
       console.log(action.payload.data);
+      // debugger;
       return [ ...state, ...action.payload.data ];
   }
 
