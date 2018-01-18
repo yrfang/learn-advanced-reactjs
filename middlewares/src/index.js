@@ -7,7 +7,7 @@ import App from './components/app';
 import reducers from './reducers';
 import Async from './middlewares/async';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
